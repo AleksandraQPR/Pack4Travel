@@ -1,0 +1,21 @@
+﻿W ramach projektu chcemy wytworzyć stronę internetową z użyciem asp.net i wzorca MVC. Witryna będzie hostowana w środowisku Azure. Witryna będzie pozwalała na sporządzanie list ułatwiających pakowanie się na wyjazdy. Listy będą zawierały przedmioty podzielone na kategorie, celem łatwiejszego ich odnalezienia. Użytkownik witryny będzie mógł zarówno korzystać z ogólnodostępnych list jak i ze swoich prywatnych po wcześniejszym zalogowaniu się. Przed zalogowaniem się dostępne są trzy najlepiej oceniane listy, które można eksportować do pliku PDF, podobnie jak pozostałe listy po zalogowaniu się. Wszystkie dostępne listy można oceniać oraz dodawać do ulubionych.
+
+Aleksandra Kuper
+Stworzenie bazy danych
+Rejestracja (login, email, hasło, powtórz hasło, captcha)
+Logowanie i wylogowanie
+Wyświetlanie trzech najlepszych list
+Tworzenie nowych list od zera (z wyborem prywatności)
+Dostęp do swoich prywatnych list
+Oznaczanie list jako ulubionych
+Dodawanie nowych przedmiotów (z obowiązkowym wyborem kat. I ustawieniem prywatności)
+
+Robert Szulist
+Szablon strony (strona wizualna, info jak działa aplikacja)
+Edycja konta (zmiana hasła, maila)
+Dostęp do wszystkich publicznych list z bazy
+Tworzenie nowych list na bazie istniejących (fork)
+Modyfikowanie / usuwanie swoich list
+Ustawianie grup do których należy stworzona lista
+Głosowanie na listy (system 5 gwiazdek)
+Eksport do pliku pdf
