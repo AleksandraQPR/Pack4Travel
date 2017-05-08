@@ -1,4 +1,12 @@
-﻿W ramach projektu chcemy wytworzyć stronę internetową z użyciem asp.net i wzorca MVC. Witryna będzie hostowana w środowisku Azure. Witryna będzie pozwalała na sporządzanie list ułatwiających pakowanie się na wyjazdy. Listy będą zawierały przedmioty podzielone na kategorie, celem łatwiejszego ich odnalezienia. Użytkownik witryny będzie mógł zarówno korzystać z ogólnodostępnych list jak i ze swoich prywatnych po wcześniejszym zalogowaniu się. Przed zalogowaniem się dostępne są trzy najlepiej oceniane listy, które można eksportować do pliku PDF, podobnie jak pozostałe listy po zalogowaniu się. Wszystkie dostępne listy można oceniać oraz dodawać do ulubionych.
+﻿W ramach projektu chcemy wytworzyć stronę internetową z użyciem asp.net i wzorca MVC.
+Witryna będzie hostowana w środowisku Azure. Witryna będzie pozwalała na
+sporządzanie list ułatwiających pakowanie się na wyjazdy.
+Listy będą zawierały przedmioty podzielone na kategorie, celem łatwiejszego
+ich odnalezienia. Użytkownik witryny będzie mógł zarówno korzystać z
+ogólnodostępnych list jak i ze swoich prywatnych po wcześniejszym zalogowaniu
+się. Przed zalogowaniem się dostępne są trzy najlepiej oceniane listy,
+które można eksportować do pliku PDF, podobnie jak pozostałe listy po
+zalogowaniu się. Wszystkie dostępne listy można oceniać oraz dodawać do ulubionych.
 
 Aleksandra Kuper
 Stworzenie bazy danych
