@@ -26,5 +26,15 @@ namespace Pack4Travel.Controllers
 
             return View();
         }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult Register()
+        {
+            return View();
+        }
     }
 }
