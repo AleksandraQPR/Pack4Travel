@@ -22,11 +22,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Informacje", "About", "Home")</li>
-                    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Logowanie", "Login", "Home")</li>
-                    <li>@Html.ActionLink("Rejestracja", "Register", "Home")</li>
+                    @RenderSection("menu", required: true)
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

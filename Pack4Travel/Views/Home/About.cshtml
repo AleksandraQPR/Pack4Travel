@@ -5,3 +5,11 @@
 <h3>@ViewBag.Message</h3>
 
 <p>Use this area to provide additional information.</p>
+
+@section menu{
+    <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
+    <li>@Html.ActionLink("Informacje", "About", "Home")</li>
+    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+    <li>@Html.ActionLink("Logowanie", "Login", "Home")</li>
+    <li>@Html.ActionLink("Rejestracja", "Register", "Home")</li>
+}
