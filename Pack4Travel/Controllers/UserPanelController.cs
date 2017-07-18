@@ -13,5 +13,10 @@ namespace Pack4Travel.Controllers
         {
             return View();
         }
+
+        public ActionResult Settings()
+        {
+            return View();
+        }
     }
 }

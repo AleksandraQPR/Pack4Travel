@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "User Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Settings</h2>
+
+@section menu{
+    <li>@Html.ActionLink("Strona główna", "Index", "UserPanel")</li>
+    <li>@Html.ActionLink("Settings", "About", "UserPanel")</li>
+    <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
+}
