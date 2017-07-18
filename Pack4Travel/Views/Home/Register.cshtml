@@ -1,8 +1,22 @@
 ﻿
 @{
-    ViewBag.Title = "RegisterView";
+    ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>RegisterView</h2>
-
+<div class="row">
+    <div class="col-md-4 pull-right">
+        <h2>Register</h2>
+        @using (Html.BeginForm("Login", "Home", "POST"))
+        {
+            @Html.Label("login", "Login:")
+            @Html.TextBox("login", null, new { @class = "form-control" })
+            @Html.Label("mail", "E-mail:")
+            @Html.TextBox("mail", null, new { @class = "form-control" })
+            @Html.Label("password", "Password:")
+            @Html.Password("password", null, new { @class = "form-control" })
+            @Html.Label("password-repeated", "Repeat password:")
+            @Html.Password("password", null, new { @class = "form-control" })
+        }
+    </div>
+</div>
