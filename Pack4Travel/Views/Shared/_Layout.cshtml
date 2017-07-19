@@ -21,9 +21,7 @@
                 @Html.ActionLink("Pack4Travel", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    @RenderSection("menu", required: true)
-                </ul>
+                
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
