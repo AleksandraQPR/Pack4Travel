@@ -1,11 +1,17 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
+@using Microsoft.AspNet.Identity
 <div class="jumbotron">
+@if (Request.IsAuthenticated)
+{
     <p class="lead">Zarządzaj swoimi listami!</p>
+}
+else
+{
+    <p class="lead">Oglądaj najlepsze listy</p>
+}
 </div>
-
 <div class="row">
     <div class="col-md-4">
         <h2>Lista #1</h2>
