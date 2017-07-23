@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Pack4Travel.Models.equipements>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.userInfo.userName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.equipementName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idGroup)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.privateStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.five_stars)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.four_stars)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.three_stars)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.two_stars)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.one_star)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.userInfo.userName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.equipementName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idGroup)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.privateStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.five_stars)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.four_stars)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.three_stars)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.two_stars)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.one_star)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idEquipement }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idEquipement }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idEquipement })
+        </td>
+    </tr>
+}
+
+</table>

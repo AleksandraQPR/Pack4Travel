@@ -1,0 +1,91 @@
+﻿@model Pack4Travel.Models.equipements
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>equipements</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.userInfo.userName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userInfo.userName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.equipementName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.equipementName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idGroup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idGroup)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.privateStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.privateStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.five_stars)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.five_stars)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.four_stars)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.four_stars)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.three_stars)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.three_stars)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.two_stars)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.two_stars)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.one_star)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.one_star)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idEquipement }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
