@@ -35,6 +35,10 @@ namespace Pack4Travel.Models
             get
             {
                 var sum = five_stars + four_stars + three_stars + two_stars + one_star;
+                if (sum == 0)
+                {
+                    return 0;
+                }
                 var wages = five_stars * 5 + four_stars * 4 + three_stars * 3 + two_stars * 2 + one_star;
                 return (wages / sum);
             }
