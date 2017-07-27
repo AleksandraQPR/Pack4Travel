@@ -1,89 +1,64 @@
 ﻿@model Pack4Travel.Models.equipements
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Details of";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+    <div class="col-md-2">
+        <h2>Details</h2>
+        <h4>@Html.DisplayFor(model => model.equipementName)</h4>
+    </div>
+    <div class="col-md-2">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.five_stars)
+            </dt>
 
-<h2>Details</h2>
+            <dd>
+                @Html.DisplayFor(model => model.five_stars)
+            </dd>
 
-<div>
-    <h4>equipements</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.userInfo.userName)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.four_stars)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.userInfo.userName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.four_stars)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.equipementName)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.three_stars)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.equipementName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.three_stars)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.idGroup)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.two_stars)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.idGroup)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.two_stars)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.privateStatus)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.one_star)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.privateStatus)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.one_star)
+            </dd>
+        </dl>
+    </div>
+</div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.five_stars)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.five_stars)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.four_stars)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.four_stars)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.three_stars)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.three_stars)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.two_stars)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.two_stars)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.one_star)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.one_star)
-        </dd>
-
-    </dl>
+<div class="row">
+   @foreach(var i in Model.items)
+   {
+       @Html.DisplayFor( model => i.itemName )
+   }
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.idEquipement }) |
