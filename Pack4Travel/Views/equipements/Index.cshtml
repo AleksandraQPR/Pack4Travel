@@ -13,7 +13,7 @@
 
 <div class="row">
 
-@foreach (var item in Model)
+@foreach (var item in Model.Where(x => x.privateStatus != "Y"))
 {
     <div class="col-md-4">
         <span>@Html.DisplayNameFor(model => model.equipementName): @Html.DisplayFor(modelItem => item.equipementName)</span><br />
