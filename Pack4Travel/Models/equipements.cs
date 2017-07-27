@@ -19,6 +19,7 @@ namespace Pack4Travel.Models
         public int idEquipement { get; set; }
 
         [Required]
+        [Display(Name = "Nazwa listy")]
         [StringLength(30)]
         public string equipementName { get; set; }
 
@@ -30,6 +31,7 @@ namespace Pack4Travel.Models
         [StringLength(1)]
         public string privateStatus { get; set; }
 
+        [Display(Name = "Œrednia ocena")]
         public decimal average
         {
             get
@@ -45,14 +47,19 @@ namespace Pack4Travel.Models
             set {; }
         }
 
+        [Display(Name = "5 gwiazdek")]
         public int five_stars { get; set; }
 
+        [Display(Name = "4 gwiazki")]
         public int four_stars { get; set; }
 
+        [Display(Name = "3 gwiazdki")]
         public int three_stars { get; set; }
 
+        [Display(Name = "2 gwiazdki")]
         public int two_stars { get; set; }
 
+        [Display(Name = "1 gwiazdka")]
         public int one_star { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
