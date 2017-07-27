@@ -48,7 +48,7 @@ namespace Pack4Travel.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idEquipement,equipementName,idGroup,idOwner,privateStatus,five_stars,four_stars,three_stars,two_stars,one_star")] equipements equipements)
+        public ActionResult Create([Bind(Include = "idEquipement,equipementName,idGroup,idOwner,privateStatus")] equipements equipements)
         {
             if (ModelState.IsValid)
             {
