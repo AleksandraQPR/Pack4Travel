@@ -12,7 +12,8 @@
     <div class="col-md-2">
         <dl class="dl-horizontal">
             <dt>
-                @Html.DisplayNameFor(model => model.five_stars)
+                
+                @Html.ActionLink(Html.DisplayNameFor(model => model.five_stars).ToHtmlString(), "Rate", new { id = Model.idEquipement, rate = 5 })
             </dt>
 
             <dd>
@@ -20,7 +21,7 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.four_stars)
+                @Html.ActionLink(@Html.DisplayNameFor(model => model.four_stars).ToHtmlString(), "Rate", new { id = Model.idEquipement, rate = 4 })
             </dt>
 
             <dd>
@@ -28,7 +29,7 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.three_stars)
+                @Html.ActionLink(@Html.DisplayNameFor(model => model.three_stars).ToHtmlString(), "Rate", new { id = Model.idEquipement, rate = 3 })
             </dt>
 
             <dd>
@@ -36,7 +37,7 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.two_stars)
+                @Html.ActionLink(@Html.DisplayNameFor(model => model.two_stars).ToHtmlString(), "Rate", new { id = Model.idEquipement, rate = 2 })
             </dt>
 
             <dd>
@@ -44,7 +45,7 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.one_star)
+                @Html.ActionLink(@Html.DisplayNameFor(model => model.one_star).ToHtmlString(), "Rate", new { id = Model.idEquipement, rate = 1 })
             </dt>
 
             <dd>
@@ -63,4 +64,5 @@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.idEquipement }) |
     @Html.ActionLink("Back to List", "Index")
+    
 </p>

@@ -120,6 +120,22 @@ namespace Pack4Travel.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Rate(int id, int rate)
+        {
+            equipements equipements = db.equipements.Find(id);
+            switch(rate)
+            {
+                case 5: equipements.five_stars++; break;
+                case 4: equipements.four_stars++; break;
+                case 3: equipements.three_stars++; break;
+                case 2: equipements.two_stars++; break;
+                case 1: equipements.one_star++; break;
+            }
+            
+            db.SaveChanges();
+            return RedirectToAction($"Details/{id}", "equipements");
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
