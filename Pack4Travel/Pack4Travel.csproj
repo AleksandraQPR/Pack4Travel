@@ -203,6 +203,14 @@
     <Compile Include="Migrations\ApplicationDbContext\201707291623007_MoveToADC.Designer.cs">
       <DependentUpon>201707291623007_MoveToADC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\ApplicationDbContext\201707291748210_ChangeReference.cs" />
+    <Compile Include="Migrations\ApplicationDbContext\201707291748210_ChangeReference.Designer.cs">
+      <DependentUpon>201707291748210_ChangeReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ApplicationDbContext\201707291757472_FixReference.cs" />
+    <Compile Include="Migrations\ApplicationDbContext\201707291757472_FixReference.Designer.cs">
+      <DependentUpon>201707291757472_FixReference.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ApplicationDbContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\equipements.cs" />
@@ -211,7 +219,6 @@
     <Compile Include="Models\itemGroup.cs" />
     <Compile Include="Models\items.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\userInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -303,6 +310,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\ApplicationDbContext\201707291623007_MoveToADC.resx">
       <DependentUpon>201707291623007_MoveToADC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\ApplicationDbContext\201707291748210_ChangeReference.resx">
+      <DependentUpon>201707291748210_ChangeReference.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\ApplicationDbContext\201707291757472_FixReference.resx">
+      <DependentUpon>201707291757472_FixReference.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Pack4Travel.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Pack4Travel.Controllers
 {
@@ -17,7 +18,7 @@ namespace Pack4Travel.Controllers
         // GET: equipements
         public ActionResult Index()
         {
-            var equipements = db.equipements.Include(e => e.userInfo);
+            var equipements = db.equipements;
             return View(equipements.ToList());
         }
 
@@ -39,7 +40,6 @@ namespace Pack4Travel.Controllers
         // GET: equipements/Create
         public ActionResult Create()
         {
-            ViewBag.idOwner = new SelectList(db.userInfo, "idUser", "userName");
             return View();
         }
 
@@ -48,16 +48,16 @@ namespace Pack4Travel.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idEquipement,equipementName,idGroup,idOwner,privateStatus")] equipements equipements)
+        public ActionResult Create([Bind(Include = "idEquipement,equipementName,idGroup,Id,privateStatus")] equipements equipements)
         {
             if (ModelState.IsValid)
             {
+                equipements.Id = User.Identity.GetUserId();
                 db.equipements.Add(equipements);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.idOwner = new SelectList(db.userInfo, "idUser", "userName", equipements.idOwner);
             return View(equipements);
         }
 
@@ -73,7 +73,6 @@ namespace Pack4Travel.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.idOwner = new SelectList(db.userInfo, "idUser", "userName", equipements.idOwner);
             return View(equipements);
         }
 
@@ -82,7 +81,7 @@ namespace Pack4Travel.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idEquipement,equipementName,idGroup,idOwner,privateStatus,five_stars,four_stars,three_stars,two_stars,one_star")] equipements equipements)
+        public ActionResult Edit([Bind(Include = "idEquipement,equipementName,idGroup,privateStatus")] equipements equipements)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +89,6 @@ namespace Pack4Travel.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.idOwner = new SelectList(db.userInfo, "idUser", "userName", equipements.idOwner);
             return View(equipements);
         }
 

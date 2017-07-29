@@ -23,7 +23,7 @@ namespace Pack4Travel.Models
 
         public int idGroup { get; set; }
 
-        public int? idOwner { get; set; }
+        public string Id { get; set; }
 
         [Required]
         [StringLength(1)]
@@ -31,7 +31,7 @@ namespace Pack4Travel.Models
 
         public virtual itemGroup itemGroup { get; set; }
 
-        public virtual userInfo userInfo { get; set; }
+        //public virtual ApplicationUser Id { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<equipements> equipements { get; set; }

@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 
 namespace Pack4Travel.Models
 {
@@ -16,6 +17,8 @@ namespace Pack4Travel.Models
             // Dodaj tutaj niestandardowe oświadczenia użytkownika
             return userIdentity;
         }
+        public virtual ICollection<equipements> equipements { get; set; }
+        public virtual ICollection<items> items { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -33,7 +36,6 @@ namespace Pack4Travel.Models
         public virtual DbSet<equipements> equipements { get; set; }
         public virtual DbSet<itemGroup> itemGroup { get; set; }
         public virtual DbSet<items> items { get; set; }
-        public virtual DbSet<userInfo> userInfo { get; set; }
         public virtual DbSet<equipementTags> equipementTags { get; set; }
     }
 }
