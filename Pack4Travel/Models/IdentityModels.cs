@@ -29,5 +29,11 @@ namespace Pack4Travel.Models
         {
             return new ApplicationDbContext();
         }
+
+        public virtual DbSet<equipements> equipements { get; set; }
+        public virtual DbSet<itemGroup> itemGroup { get; set; }
+        public virtual DbSet<items> items { get; set; }
+        public virtual DbSet<userInfo> userInfo { get; set; }
+        public virtual DbSet<equipementTags> equipementTags { get; set; }
     }
 }

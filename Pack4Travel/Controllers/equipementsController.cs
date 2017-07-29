@@ -12,7 +12,7 @@ namespace Pack4Travel.Controllers
 {
     public class equipementsController : Controller
     {
-        private pack4travel db = new pack4travel();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: equipements
         public ActionResult Index()
