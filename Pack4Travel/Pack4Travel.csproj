@@ -282,6 +282,7 @@
     <Content Include="Views\equipements\Details.cshtml" />
     <Content Include="Views\equipements\Edit.cshtml" />
     <Content Include="Views\equipements\Index.cshtml" />
+    <Content Include="Views\Shared\_TagsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,6 @@
+﻿@model Pack4Travel.Models.equipements
+
+@foreach (var tag in Model.equipementTags.Where(x => x.idEquipement == Model.idEquipement))
+{
+    <span class="badge badge-default">@Html.DisplayFor(x => tag.idEquipementGroup)</span>
+}

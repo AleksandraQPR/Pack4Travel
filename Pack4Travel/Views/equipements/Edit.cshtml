@@ -12,10 +12,7 @@
     </div>
     <div class="col-md-2">
         <h2>Tagi:</h2>
-    @foreach (var tag in Model.equipementTags.Where(x => x.idEquipement == Model.idEquipement))
-    {
-        <span class="badge badge-default">@Html.DisplayFor(x => tag.idEquipementGroup)</span>
-    }
+    @Html.Partial("_TagsPartial")
     </div>
 </div>
 <hr />
