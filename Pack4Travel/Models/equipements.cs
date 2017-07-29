@@ -44,7 +44,6 @@ namespace Pack4Travel.Models
                 var wages = 0.0m + five_stars * 5 + four_stars * 4 + three_stars * 3 + two_stars * 2 + one_star;
                 return (wages / sum);
             }
-            set {; }
         }
 
         [Display(Name = "5 gwiazdek")]
