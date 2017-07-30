@@ -244,6 +244,38 @@ namespace Pack4Travel.Controllers
             return View(model);
         }
 
+        public ActionResult ChangeMail()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Manage/ChangePassword
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ChangeMail(ChangeMailViewModel model)
+        {
+            var userId = User.Identity.GetUserId();
+            var user = await UserManager.FindByIdAsync(userId);
+            if (user != null)
+            {
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
+                if (UserManager.CheckPassword(user, model.Password))
+                {
+                    user.Email = model.Email;
+                    user.UserName = model.Email;
+                    await UserManager.UpdateAsync(user);
+
+                    return RedirectToAction("Index", new { Message = "Mail changed!" });
+                }
+            }
+            //AddErrors(result);
+            return View(model);
+        }
+
         //
         // GET: /Manage/SetPassword
         public ActionResult SetPassword()

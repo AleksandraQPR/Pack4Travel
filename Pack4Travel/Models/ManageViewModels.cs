@@ -58,6 +58,20 @@ namespace Pack4Travel.Models
         public string ConfirmPassword { get; set; }
     }
 
+    public class ChangeMailViewModel
+    {
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Nowy adres e-mail")]
+        public string Email { get; set; }
+
+
+        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "Potwierdź wpisując hasło")]
+        public string Password { get; set; }
+    }
+
     public class AddPhoneNumberViewModel
     {
         [Required]
