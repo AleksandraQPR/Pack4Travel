@@ -172,6 +172,13 @@ namespace Pack4Travel.Controllers
             return RedirectToAction($"Edit/{newequipements.idEquipement}", "equipements");
         }
 
+        public ActionResult Private()
+        {
+            var equipements = db.equipements;
+            return View(equipements.ToList());
+        }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -285,6 +285,7 @@
     <Content Include="Views\equipements\Edit.cshtml" />
     <Content Include="Views\equipements\Index.cshtml" />
     <Content Include="Views\Shared\_TagsPartial.cshtml" />
+    <Content Include="Views\equipements\Private.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
