@@ -89,6 +89,9 @@ namespace Pack4Travel.Controllers
             {
                 db.Entry(equipements).State = EntityState.Modified;
                 db.SaveChanges();
+                equipements tmp = db.equipements.Find(equipements.idEquipement);
+                tmp.Id = User.Identity.GetUserId();
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(equipements);
