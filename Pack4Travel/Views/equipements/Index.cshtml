@@ -20,7 +20,8 @@
         <span>@Html.DisplayFor(modelItem => item.average)</span><br />
         <span>@Html.ActionLink("Edit", "Edit", new { id = item.idEquipement }) |
             @Html.ActionLink("Details", "Details", new { id = item.idEquipement }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.idEquipement })
+            @Html.ActionLink("Delete", "Delete", new { id = item.idEquipement }) |
+            @Html.ActionLink("Fork", "Fork", new { id = item.idEquipement })
         </span>   
     </div>
 }

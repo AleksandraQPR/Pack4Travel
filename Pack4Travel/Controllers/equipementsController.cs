@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using Pack4Travel.Models;
 using Microsoft.AspNet.Identity;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Pack4Travel.Controllers
 {
@@ -87,6 +89,9 @@ namespace Pack4Travel.Controllers
             {
                 db.Entry(equipements).State = EntityState.Modified;
                 db.SaveChanges();
+                equipements tmp = db.equipements.Find(equipements.idEquipement);
+                tmp.Id = User.Identity.GetUserId();
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(equipements);
@@ -132,6 +137,39 @@ namespace Pack4Travel.Controllers
             
             db.SaveChanges();
             return RedirectToAction($"Details/{id}", "equipements");
+        }
+
+        public ActionResult Fork(int id)
+        {
+            equipements equipements = db.equipements.Find(id);
+            equipements newequipements = new equipements();
+
+            newequipements = equipements;
+
+            //deep copy of items
+            //using (MemoryStream stream = new MemoryStream())
+            //{
+            //    BinaryFormatter formatter = new BinaryFormatter();
+            //    formatter.Serialize(stream, equipements);
+            //    stream.Position = 0;
+
+            //    newequipements = (equipements)formatter.Deserialize(stream);
+            //}
+
+            //remove rating
+            newequipements.five_stars = 0;
+            newequipements.four_stars = 0;
+            newequipements.three_stars = 0;
+            newequipements.two_stars = 0;
+            newequipements.one_star = 0;
+
+            //change ownership
+            newequipements.Id = User.Identity.GetUserId();
+
+            db.equipements.Add(newequipements);
+            db.SaveChanges();
+
+            return RedirectToAction($"Edit/{newequipements.idEquipement}", "equipements");
         }
 
         protected override void Dispose(bool disposing)
