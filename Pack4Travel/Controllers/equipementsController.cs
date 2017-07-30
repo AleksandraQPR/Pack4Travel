@@ -75,6 +75,10 @@ namespace Pack4Travel.Controllers
             {
                 return HttpNotFound();
             }
+            if (equipements.Id != User.Identity.GetUserId())
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
             return View(equipements);
         }
 
