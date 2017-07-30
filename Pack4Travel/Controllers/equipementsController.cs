@@ -10,6 +10,7 @@ using Pack4Travel.Models;
 using Microsoft.AspNet.Identity;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Rotativa;
 
 namespace Pack4Travel.Controllers
 {
@@ -170,6 +171,11 @@ namespace Pack4Travel.Controllers
             db.SaveChanges();
 
             return RedirectToAction($"Edit/{newequipements.idEquipement}", "equipements");
+        }
+
+        public ActionResult PrintDetails(int id)
+        {
+            return new ActionAsPdf($"Details/{id}") { FileName = "Pack4Travel.pdf" };
         }
 
         protected override void Dispose(bool disposing)
