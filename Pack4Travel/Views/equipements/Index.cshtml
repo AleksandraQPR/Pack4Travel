@@ -18,9 +18,7 @@
     <div class="col-md-4">
         <span>@Html.DisplayNameFor(model => model.equipementName): @Html.DisplayFor(modelItem => item.equipementName)</span><br />
         <span>@Html.DisplayFor(modelItem => item.average)</span><br />
-        <span>@Html.ActionLink("Edit", "Edit", new { id = item.idEquipement }) |
-            @Html.ActionLink("Details", "Details", new { id = item.idEquipement }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.idEquipement }) |
+        <span>@Html.ActionLink("Details", "Details", new { id = item.idEquipement }) |
             @Html.ActionLink("Fork", "Fork", new { id = item.idEquipement })
         </span>   
     </div>

@@ -76,6 +76,10 @@ namespace Pack4Travel.Controllers
             {
                 return HttpNotFound();
             }
+            if (equipements.Id != User.Identity.GetUserId())
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
             return View(equipements);
         }
 
@@ -177,6 +181,13 @@ namespace Pack4Travel.Controllers
         {
             return new ActionAsPdf($"Details/{id}") { FileName = "Pack4Travel.pdf" };
         }
+
+        public ActionResult Private()
+        {
+            var equipements = db.equipements;
+            return View(equipements.ToList());
+        }
+
 
         protected override void Dispose(bool disposing)
         {
