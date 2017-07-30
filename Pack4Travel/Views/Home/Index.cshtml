@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<Pack4Travel.Models.equipements>
+
+@{
     ViewBag.Title = "Home Page";
 }
 @using Microsoft.AspNet.Identity
@@ -12,14 +14,19 @@ else
     <p class="lead">Pack4Travel jest serwisem umożliwiającym tworzenie list rzeczy do spakowania na podróż.</p>
 }
 </div>
+
 <div class="row">
-    <div class="col-md-4">
-        <h2>Lista #1</h2>
-    </div>
-    <div class="col-md-4">
-        <h2>Lista #2</h2>
-    </div>
-    <div class="col-md-4">
-        <h2>Lista #2</h2>
-    </div>
+    @foreach (var equipement in Model)
+    {
+        <div class="col-md-4">
+            <h2 class="btn btn-block btn-primary">Lista @equipement.equipementName</h2>
+            @foreach (var item in equipement.items)
+            {
+                <div class="btn btn-default btn-block">
+                    @Html.DisplayFor(i => item.itemName)
+                </div>
+            }
+        </div>
+    }
 </div>
+
