@@ -19,6 +19,7 @@ namespace Pack4Travel.Models
 
         [Required]
         [StringLength(30)]
+        [Display(Name = "Nazwa rzeczy")]
         public string itemName { get; set; }
 
         public int idGroup { get; set; }
@@ -27,6 +28,7 @@ namespace Pack4Travel.Models
 
         [Required]
         [StringLength(1)]
+        [Display(Name = "Prywatny status Y/N")]
         public string privateStatus { get; set; }
 
         public virtual itemGroup itemGroup { get; set; }

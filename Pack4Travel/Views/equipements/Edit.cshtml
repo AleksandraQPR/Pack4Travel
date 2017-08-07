@@ -60,6 +60,9 @@
 }
 </div>
 
+@Html.Partial("_NewItemPartial", Model.items.First());
+<div id="itemy"></div>
+
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>

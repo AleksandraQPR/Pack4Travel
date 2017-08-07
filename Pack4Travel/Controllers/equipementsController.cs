@@ -80,6 +80,10 @@ namespace Pack4Travel.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
+            if (!equipements.items.Any())
+            {
+                equipements.items.Add(new items());
+            }
             return View(equipements);
         }
 
@@ -100,6 +104,19 @@ namespace Pack4Travel.Controllers
                 return RedirectToAction("Index");
             }
             return View(equipements);
+        }
+
+        public ActionResult AddNewItemToDb()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddNewItemToDb(items item)
+        {
+                db.items.Add(item);
+                db.SaveChanges();
+                return Json("Dziękujemy, element został zapisany w bazie");
         }
 
         // GET: equipements/Delete/5
