@@ -60,6 +60,21 @@
 }
 </div>
 
+<h2>Wybierz elementy do swojej listy</h2>
+
+<div class="row">
+        <div class="col-md-4">
+            <h2 class="btn btn-block btn-primary">Lista @Model.equipementName</h2>
+            @foreach (var item in Model.items)
+            {
+                <div class="btn btn-default btn-block">
+                    @Html.DisplayFor(i => item.itemName)
+                </div>
+            }
+        </div>
+</div>
+
+
 @Html.Partial("_NewItemPartial", Model.items.First());
 <div id="itemy"></div>
 

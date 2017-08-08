@@ -7,11 +7,10 @@
 
 <h2>Create</h2>
 
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>equipements</h4>
         <hr />
@@ -49,8 +48,28 @@
     </div>
 }
 
-@*@Html.Partial("_NewItemPartial", Model.items.First());
-<div id="itemy"></div>*@
+<h2>Wybierz elementy do swojej listy</h2>
+<table class="table">
+    <tr>
+        @*<th>
+                @Html.DisplayNameFor(model => model.items.itemName)
+            </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.items)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.itemName)
+            </td>
+            <td>
+                <input type="button" value="save to file" onclick="" />
+            </td>
+        </tr>
+    }
+
+</table>
 
 <div>
     @Html.ActionLink("Back to List", "Index")
@@ -59,3 +78,4 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
