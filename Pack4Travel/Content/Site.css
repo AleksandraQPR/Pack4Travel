@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.space{
+margin-top: 15px;
+margin-bottom: 15px;
+}
+.font-white{
+   color: white;
+}

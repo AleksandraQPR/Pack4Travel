@@ -1,0 +1,93 @@
+﻿@model Pack4Travel.Models.equipements
+
+@{
+    ViewBag.Title = "Details of";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+
+    <div class="col-md-4 col-md-offset-4">
+        <span class="btn btn-info space">
+            @Html.ActionLink("EDYTUJ", "Edit", new { id = Model.idEquipement }, new { @class = "font-white" })
+        </span>
+        <span class="btn btn-info space">
+
+            @Html.ActionLink("DRUKUJ DO PDF", "PrintDetails", new { id = Model.idEquipement }, new { @class = "font-white" })
+        </span>
+        <span class="btn btn-info space">
+
+            @Html.ActionLink("POWRÓT", "Index", null, new { @class = "font-white" })
+        </span>
+
+    </div>
+</div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <h2 class="btn btn-block btn-primary space">
+                @Html.DisplayFor(model => model.equipementName)
+            </h2>
+            @Html.Partial("_TagsPartial")
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                @foreach (var i in Model.items)
+            {
+                    <div class="btn btn-default btn-block">
+
+                        @Html.DisplayFor(model => i.itemName)
+                    </div>
+                }
+            </div>
+
+        </div>
+
+
+
+        <div class="col-md-4 col-md-offset-4">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.ActionLink("★★★★★", "Rate", new { id = Model.idEquipement, rate = 5 })
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.five_stars)
+                </dd>
+
+                <dt>
+                    @Html.ActionLink("★★★★", "Rate", new { id = Model.idEquipement, rate = 4 })
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.four_stars)
+                </dd>
+
+                <dt>
+                    @Html.ActionLink("★★★", "Rate", new { id = Model.idEquipement, rate = 3 })
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.three_stars)
+                </dd>
+
+                <dt>
+                    @Html.ActionLink("★★", "Rate", new { id = Model.idEquipement, rate = 2 })
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.two_stars)
+                </dd>
+
+                <dt>
+                    @Html.ActionLink("★", "Rate", new { id = Model.idEquipement, rate = 1 })
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.one_star)
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    
+

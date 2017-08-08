@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4 pull-right">
+        <h2>Register</h2>
+        @using (Html.BeginForm("Register", "Home", "POST"))
+        {
+            @Html.Label("login", "Login:")
+            @Html.TextBox("login", null, new { @class = "form-control" })
+            @Html.Label("mail", "E-mail:")
+            @Html.TextBox("mail", null, new { @class = "form-control" })
+            @Html.Label("password", "Password:")
+            @Html.Password("password", null, new { @class = "form-control" })
+            @Html.Label("password-repeated", "Repeat password:")
+            @Html.Password("password", null, new { @class = "form-control" })
+            <input type="submit" value="Register" class="btn" />
+        }
+    </div>
+</div>
+
+@section menu{
+    <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
+    <li>@Html.ActionLink("Informacje", "About", "Home")</li>
+    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+    <li>@Html.ActionLink("Logowanie", "Login", "Home")</li>
+    <li>@Html.ActionLink("Rejestracja", "Register", "Home")</li>    
+}

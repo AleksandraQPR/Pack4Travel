@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pack4Travel.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,22 +9,26 @@ namespace Pack4Travel.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index()
         {
+            var ThreeTheBestEquipementList = db.equipements.OrderByDescending(e => e.five_stars).Take(3).ToList();
+            
+            if (Request.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "equipements");
+            }
+            return View(ThreeTheBestEquipementList);
+        }
+
+        public ActionResult Login()
+        {
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Register()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }
