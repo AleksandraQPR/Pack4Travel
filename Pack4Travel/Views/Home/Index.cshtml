@@ -11,7 +11,7 @@
 }
 else
 {
-    <p class="lead">Pack4Travel jest serwisem umożliwiającym tworzenie list rzeczy do spakowania na podróż.</p>
+    <p class="lead">Cieszymy się, że trafiłeś na naszą stronę Pack4Travel! Pomożemy Ci się spakować na każdą okazję. <br />Utwórz konto, aby w pełni korzystać z serwisu Pack4Travel.</p>
 }
 </div>
 
@@ -19,7 +19,7 @@ else
     @foreach (var equipement in Model)
     {
         <div class="col-md-4">
-            <h2 class="btn btn-block btn-primary">Lista @equipement.equipementName</h2>
+            <h2 class="btn btn-block btn-primary">@equipement.equipementName</h2>
             @foreach (var item in equipement.items)
             {
                 <div class="btn btn-default btn-block">

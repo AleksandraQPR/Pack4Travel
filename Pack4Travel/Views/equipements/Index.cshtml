@@ -5,23 +5,21 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="equipements/Create" class="btn btn-success space">Utwórz nową listę</a>
 </p>
 
 <div class="row">
-
-@foreach (var item in Model.Where(x => x.privateStatus != "Y"))
-{
-    <div class="col-md-4">
-        <span>@Html.DisplayNameFor(model => model.equipementName): @Html.DisplayFor(modelItem => item.equipementName)</span><br />
-        <span>@Html.DisplayFor(modelItem => item.average)</span><br />
-        <span>@Html.ActionLink("Details", "Details", new { id = item.idEquipement }) |
-            @Html.ActionLink("Fork", "Fork", new { id = item.idEquipement })
-        </span>   
-    </div>
-}
-
+    @foreach (var item in Model.Where(x => x.privateStatus != "Y"))
+    {
+        <div class="col-md-4">
+            <h2 class="btn btn-block btn-primary">@Html.DisplayFor(modelItem => item.equipementName) @Html.DisplayFor(modelItem => item.average)</h2>
+            <span class="btn btn-info space">
+                @Html.ActionLink("SZCZEGÓŁY", "Details", new { id = item.idEquipement }, new { @class = "font-white" })
+            </span>
+            <span class="btn btn-info space">
+                @Html.ActionLink("KOPIUJ", "Fork", new { id = item.idEquipement }, new { @class = "font-white" })
+            </span>
+        </div>
+    }
 </div>

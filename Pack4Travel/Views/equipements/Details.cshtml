@@ -5,66 +5,89 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
-    <div class="col-md-2">
-        <h2>Details</h2>
-        <h4>@Html.DisplayFor(model => model.equipementName)</h4>
-        @Html.Partial("_TagsPartial")
-    </div>
-    <div class="col-md-2">
-        <dl class="dl-horizontal">
-            <dt>
-                
-                @Html.ActionLink(Html.DisplayNameFor(model => model.five_stars).ToHtmlString(), "Rate", new { id = Model.idEquipement, rate = 5 })
-            </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.five_stars)
-            </dd>
+    <div class="col-md-4 col-md-offset-4">
+        <span class="btn btn-info space">
+            @Html.ActionLink("EDYTUJ", "Edit", new { id = Model.idEquipement }, new { @class = "font-white" })
+        </span>
+        <span class="btn btn-info space">
 
-            <dt>
-                @Html.ActionLink(@Html.DisplayNameFor(model => model.four_stars).ToHtmlString(), "Rate", new { id = Model.idEquipement, rate = 4 })
-            </dt>
+            @Html.ActionLink("DRUKUJ DO PDF", "PrintDetails", new { id = Model.idEquipement }, new { @class = "font-white" })
+        </span>
+        <span class="btn btn-info space">
 
-            <dd>
-                @Html.DisplayFor(model => model.four_stars)
-            </dd>
+            @Html.ActionLink("POWRÓT", "Index", null, new { @class = "font-white" })
+        </span>
 
-            <dt>
-                @Html.ActionLink(@Html.DisplayNameFor(model => model.three_stars).ToHtmlString(), "Rate", new { id = Model.idEquipement, rate = 3 })
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.three_stars)
-            </dd>
-
-            <dt>
-                @Html.ActionLink(@Html.DisplayNameFor(model => model.two_stars).ToHtmlString(), "Rate", new { id = Model.idEquipement, rate = 2 })
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.two_stars)
-            </dd>
-
-            <dt>
-                @Html.ActionLink(@Html.DisplayNameFor(model => model.one_star).ToHtmlString(), "Rate", new { id = Model.idEquipement, rate = 1 })
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.one_star)
-            </dd>
-        </dl>
     </div>
 </div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <h2 class="btn btn-block btn-primary space">
+                @Html.DisplayFor(model => model.equipementName)
+            </h2>
+            @Html.Partial("_TagsPartial")
+        </div>
 
-<div class="row">
-   @foreach(var i in Model.items)
-   {
-       @Html.DisplayFor( model => i.itemName )
-   }
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idEquipement }) |
-    @Html.ActionLink("Print as PDF", "PrintDetails", new { id = Model.idEquipement }) |
-    @Html.ActionLink("Back to List", "Index")
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                @foreach (var i in Model.items)
+            {
+                    <div class="btn btn-default btn-block">
+
+                        @Html.DisplayFor(model => i.itemName)
+                    </div>
+                }
+            </div>
+
+        </div>
+
+
+
+        <div class="col-md-4 col-md-offset-4">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.ActionLink("★★★★★", "Rate", new { id = Model.idEquipement, rate = 5 })
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.five_stars)
+                </dd>
+
+                <dt>
+                    @Html.ActionLink("★★★★", "Rate", new { id = Model.idEquipement, rate = 4 })
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.four_stars)
+                </dd>
+
+                <dt>
+                    @Html.ActionLink("★★★", "Rate", new { id = Model.idEquipement, rate = 3 })
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.three_stars)
+                </dd>
+
+                <dt>
+                    @Html.ActionLink("★★", "Rate", new { id = Model.idEquipement, rate = 2 })
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.two_stars)
+                </dd>
+
+                <dt>
+                    @Html.ActionLink("★", "Rate", new { id = Model.idEquipement, rate = 1 })
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.one_star)
+                </dd>
+            </dl>
+        </div>
+    </div>
+
     
-</p>
+

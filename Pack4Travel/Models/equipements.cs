@@ -29,7 +29,7 @@ namespace Pack4Travel.Models
 
         [Required]
         [StringLength(1)]
-        [Display(Name = "Prywatny status Y/N")]
+        [Display(Name = "Prywatny Y/N")]
         public string privateStatus { get; set; }
 
         [Display(Name = "Œrednia ocena")]
