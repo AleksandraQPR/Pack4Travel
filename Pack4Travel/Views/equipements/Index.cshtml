@@ -6,20 +6,37 @@
 }
 
 <p>
-    <a href="equipements/Create" class="btn btn-success space">Utwórz nową listę</a>
+    <a href="equipements/Create" class="btn btn-success space .btn-lg">Utwórz nową listę</a>
 </p>
 
 <div class="row">
     @foreach (var item in Model.Where(x => x.privateStatus != "Y"))
     {
-        <div class="col-md-4">
-            <h2 class="btn btn-block btn-primary">@Html.DisplayFor(modelItem => item.equipementName) @Html.DisplayFor(modelItem => item.average)</h2>
-            <span class="btn btn-info space">
-                @Html.ActionLink("SZCZEGÓŁY", "Details", new { id = item.idEquipement }, new { @class = "font-white" })
-            </span>
-            <span class="btn btn-info space">
-                @Html.ActionLink("KOPIUJ", "Fork", new { id = item.idEquipement }, new { @class = "font-white" })
-            </span>
-        </div>
+            <div class="list-group col-md-10 col-md-offset-2">
+
+                <p class="col-md-2 list-group-item">@Html.DisplayFor(modelItem => item.equipementName)</p>
+                <p class="col-md-2 list-group-item">★★★★ @Html.DisplayFor(modelItem => item.average)</p>
+                    @Html.ActionLink("SZCZEGÓŁY", "Details", new { id = item.idEquipement }, new { @class = "col-md-2 col-md-offset-1 list-group-item centre_aligne-text" })
+                    @Html.ActionLink("KOPIUJ", "Fork", new { id = item.idEquipement }, new { @class = "col-md-2 list-group-item centre_aligne-text" })
+
+
+            </div>
     }
 </div>
+
+
+
+@*<div class="row">
+        @foreach (var item in Model.Where(x => x.privateStatus != "Y"))
+        {
+            <div class="col-md-4">
+                <h2 class="btn btn-block btn-primary">@Html.DisplayFor(modelItem => item.equipementName) @Html.DisplayFor(modelItem => item.average)</h2>
+                <span class="btn btn-info space">
+                    @Html.ActionLink("SZCZEGÓŁY", "Details", new { id = item.idEquipement }, new { @class = "font-white" })
+                </span>
+                <span class="btn btn-info space">
+                    @Html.ActionLink("KOPIUJ", "Fork", new { id = item.idEquipement }, new { @class = "font-white" })
+                </span>
+            </div>
+        }
+    </div>*@

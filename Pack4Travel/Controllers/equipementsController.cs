@@ -63,50 +63,17 @@ namespace Pack4Travel.Controllers
         {
             if (ModelState.IsValid)
             {
-                // var AllItemsFromDB = (from item in db.items select item).ToList();
-                //// var equipements = new equipements();
-                // equipements.items = new List<items>() { new items() };
-
-                // foreach (var item in AllItemsFromDB)
-                // {
-                //     equipements.items.Add(item);
-                // }
-
-
                 equipements.Id = User.Identity.GetUserId();
                 db.equipements.Add(equipements);
                 db.SaveChanges();
-
-
-
-
                 var idFromDB = equipements.idEquipement;
-
-                //var AllItemsFromDB = (from item in db.items select item).ToList();
 
                 foreach(var i in db.items)
                 {
                     equipements.items.Add(i);
                 }
 
-                // var equipements = new equipements();
-                //equipements.items = new List<items>() { new items() };
-
-                //foreach (var item in AllItemsFromDB)
-                //{
-                //    db.equipements.Find(idFromDB).items.Add(item);
-                //}
                 db.SaveChanges();
-
-
-                // var AllItemsFromDB = (from item in db.items select item.idItem).ToList();
-
-                //db.equipements.Find(equipements.idEquipement);
-                //var createdEquipement = db.equipements.Find(equipements.idEquipement);
-                //foreach (var item in AllItemsFromDB)
-                //{
-                //}
-
                 return RedirectToAction($"Edit/{equipements.idEquipement}", "equipements");
             }
 

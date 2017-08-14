@@ -4,28 +4,33 @@
     ViewBag.Title = "Home Page";
 }
 @using Microsoft.AspNet.Identity
-<div class="jumbotron">
-@if (Request.IsAuthenticated)
-{
-    <p class="lead">Zarządzaj swoimi listami!</p>
-}
-else
-{
-    <p class="lead">Cieszymy się, że trafiłeś na naszą stronę Pack4Travel! Pomożemy Ci się spakować na każdą okazję. <br />Utwórz konto, aby w pełni korzystać z serwisu Pack4Travel.</p>
-}
+<div class="row">
+    <div class="greeting">
+
+        @if (Request.IsAuthenticated)
+        {
+            <p class="lead">Zarządzaj swoimi listami!</p>
+        }
+        else
+        {
+            <span>CIESZYMY SIĘ, ŻE TRAFIŁEŚ NA NASZĄ STRONĘ Pack4Travel! POMOŻEMY CI SIĘ SPAKOWAĆ NA KAŻDĄ OKAZJĘ. UTWÓRZ KONTO, ABY W PEŁNI KORZYSTAĆ Z SERWISU Pack4Travel.</span>
+        }
+    </div>
 </div>
 
 <div class="row">
     @foreach (var equipement in Model)
     {
         <div class="col-md-4">
-            <h2 class="btn btn-block btn-primary">@equipement.equipementName</h2>
-            @foreach (var item in equipement.items)
-            {
-                <div class="btn btn-default btn-block">
-                    @Html.DisplayFor(i => item.itemName)
-                </div>
-            }
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-heading">@equipement.equipementName</li>
+                @foreach (var item in equipement.items)
+                {
+                    <li class="list-group-item">
+                        @Html.DisplayFor(i => item.itemName)
+                    </li>
+                }
+            </ul>
         </div>
     }
 </div>
