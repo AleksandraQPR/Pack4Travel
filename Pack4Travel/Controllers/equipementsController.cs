@@ -43,14 +43,14 @@ namespace Pack4Travel.Controllers
         // GET: equipements/Create
         public ActionResult Create()
         {
-            var AllItemsFromDB = (from item in db.items select item).ToList();
+          //  var AllItemsFromDB = (from item in db.items select item).ToList();
             var equipentList = new equipements();
-            equipentList.items = new List<items>() { new items() };
+            //equipentList.items = new List<items>() { new items() };
 
-            foreach (var item in AllItemsFromDB)
-            {
-                equipentList.items.Add(item);
-            }
+            //foreach (var item in AllItemsFromDB)
+            //{
+            //    equipentList.items.Add(item);
+            //}
             return View(equipentList);
         }
 
@@ -66,14 +66,15 @@ namespace Pack4Travel.Controllers
                 equipements.Id = User.Identity.GetUserId();
                 db.equipements.Add(equipements);
                 db.SaveChanges();
-                var idFromDB = equipements.idEquipement;
 
-                foreach(var i in db.items)
-                {
-                    equipements.items.Add(i);
-                }
+                //var idFromDB = equipements.idEquipement;
 
-                db.SaveChanges();
+                //foreach(var i in db.items)
+                //{
+                //    equipements.items.Add(i);
+                //}
+
+                //db.SaveChanges();
                 return RedirectToAction($"Edit/{equipements.idEquipement}", "equipements");
             }
 
