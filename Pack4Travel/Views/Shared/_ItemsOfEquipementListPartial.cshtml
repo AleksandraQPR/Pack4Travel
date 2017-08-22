@@ -1,0 +1,21 @@
+﻿@model Pack4Travel.Models.equipements
+@{ 
+    TempData["equipementId"] = Model.idEquipement;
+}
+
+
+<h2 class="btn btn-block btn-primary col-md-4">@Model.equipementName</h2>
+
+@foreach (var item in Model.items)
+            {
+    <div class="btn btn-default btn-block col-md-4">
+        @Html.DisplayFor(i => item.itemName)
+
+        <a href='@Url.Action("DeleteItemFromOwnerList", "equipements", new { idOfEqupementList = Model.idEquipement, idOfItem = item.idItem })'> USUŃ </a>
+    </div>
+}
+
+    @{
+
+        Html.RenderAction("GetAllItemsFromDB", "equipements");
+    }

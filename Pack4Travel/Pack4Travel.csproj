@@ -296,7 +296,8 @@
     <Content Include="Views\equipements\Private.cshtml" />
     <Content Include="Views\Shared\_NewItemPartial.cshtml" />
     <Content Include="Views\equipements\AddNewItemToDb.cshtml" />
-    <Content Include="Views\Shared\_ItemCollectionOfEquipementList.cshtml" />
+    <Content Include="Views\Shared\_ListOfItemsPartial.cshtml" />
+    <Content Include="Views\Shared\_ItemsOfEquipementListPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

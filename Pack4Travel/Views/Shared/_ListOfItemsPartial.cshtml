@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Pack4Travel.Models.items>
+
+
+
+@using (Html.BeginForm("SelectItemsFromDB", "equipements", FormMethod.Post))
+{
+@Html.DropDownList("ItemsList",
+                    new SelectList(Model, "idItem", "itemName"),
+                    "Wybierz rzecz",
+                    new { @class = "form-control" })
+<input type="submit" value="DODAJ" />
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -88,25 +88,6 @@ namespace Pack4Travel.Controllers
             return Json("1");
         }
 
-        // GET: equipements/Delete/5
-        public void DeleteFromOwnerList(int itemId)
-        {
-            // var equipementFromDB = db.equipements.Find(equipementId);
-
-
-            // return View("Create");
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
-            //items item = db.items.Find(id);
-            //if (item == null)
-            //{
-            //    return HttpNotFound();
-            //}
-            // return View("Create");
-        }
-
         // GET: equipements/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -159,7 +140,15 @@ namespace Pack4Travel.Controllers
         {
             db.items.Add(item);
             db.SaveChanges();
-            return Json("Dziękujemy, element został zapisany w bazie");
+
+            var currentEquipementId = TempData["equipementId"];
+            var currentEquipement = db.equipements.Find(currentEquipementId);
+            db.equipements.Find(currentEquipementId).items.Add(item);
+
+            db.SaveChanges();
+            return PartialView("_ItemsOfEquipementListPartial", currentEquipement);
+
+           // return Json("Dziękujemy, element został zapisany w bazie");
         }
 
         // GET: equipements/Delete/5
@@ -177,6 +166,17 @@ namespace Pack4Travel.Controllers
             return View(equipements);
         }
 
+        [HttpPost]
+        public ActionResult SelectItemsFromDB(items item, FormCollection form)
+        {
+            string selectedItemId = form["ItemsList"].ToString();
+            items selectedItem = db.items.Find(Int32.Parse(selectedItemId));
+            var currentEquipementId = TempData["equipementId"];
+            db.equipements.Find(currentEquipementId).items.Add(selectedItem);
+            db.SaveChanges();
+            return RedirectToAction($"Edit/{currentEquipementId}", "equipements");
+        }
+
         // POST: equipements/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -187,6 +187,28 @@ namespace Pack4Travel.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult DeleteItemFromOwnerList(int idOfEqupementList, int idOfItem)
+        {
+            equipements equipements = db.equipements.Find(idOfEqupementList);
+            var actualListOfItems = equipements.items.ToList();
+            var newListOfItems = from item in actualListOfItems where item.idItem != idOfItem select item;
+            equipements.items = null;
+            db.SaveChanges();
+            equipements.items = new List<items>();
+            foreach (var item in newListOfItems)
+                equipements.items.Add(item);
+            db.SaveChanges();
+            return RedirectToAction($"Edit/{equipements.idEquipement}", "equipements");
+        }
+
+        public ActionResult GetAllItemsFromDB()
+        {
+            var allItemsFromDB = db.items.OrderBy(i=>i.itemName).ToList();
+            return PartialView("_ListOfItemsPartial", allItemsFromDB);
+        }
+
+
 
         public ActionResult Rate(int id, int rate)
         {

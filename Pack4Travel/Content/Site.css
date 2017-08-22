@@ -46,7 +46,7 @@ margin-bottom: 15px;
 
 
 body {
-    background-image: url('images/waterfalls.jpg'); 
+    /*background-image: url('images/waterfalls.jpg');*/ 
     background-size: cover;
     background-position: center center;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;

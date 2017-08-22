@@ -37,5 +37,10 @@ namespace Pack4Travel.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<equipements> equipements { get; set; }
+
+        //public override string ToString()
+        //{
+        //    return itemName.ToString();
+        //}
     }
 }
